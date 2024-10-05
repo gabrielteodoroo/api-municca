@@ -40,4 +40,8 @@ export class InMemoryUserRepository extends UserRepository {
 
     return user;
   }
+
+  async findMany() {
+    return this.items;
+  }
 }
