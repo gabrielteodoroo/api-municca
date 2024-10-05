@@ -6,7 +6,6 @@ import User from '../entities/user';
 
 type Request = {
   email: string;
-  name: string;
 };
 
 type Response = Either<InvalidCredentialsError, { user: User; token: string }>;
@@ -17,7 +16,7 @@ export class AuthUserUseCase {
     private tokenRepository: TokenRepository,
   ) {}
 
-  async handle({ email, name }: Request): Promise<Response> {
+  async handle({ email }: Request): Promise<Response> {
     const user = await this.userRepository.findByEmail(email);
 
     if (!user) {
