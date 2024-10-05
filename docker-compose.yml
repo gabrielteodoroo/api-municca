@@ -1,19 +1,5 @@
 version: '3'
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    depends_on:
-      - postgres
-    environment:
-      NODE_ENV: production
-      DATABASE_URL: postgres://postgres:example@postgres:5432/db_name
-    networks:
-      - app-network
-
   postgres:
     image: postgres:13-alpine
     volumes:
@@ -22,6 +8,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: example
       POSTGRES_DB: db_name
+    ports:
+      - "5432:5432"
     networks:
       - app-network
 
