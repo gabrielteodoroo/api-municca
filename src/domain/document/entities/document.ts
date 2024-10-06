@@ -3,7 +3,7 @@ import Identity from '@/core/entities/identity';
 import User from '@/domain/user/entities/user';
 
 type DocumentType = {
-  user: User;
+  userId: string;
   name: string;
   status: string;
 };
@@ -21,8 +21,8 @@ export default class Document extends Entity<DocumentType> {
     return this.attributes.status;
   }
 
-  get user() {
-    return this.attributes.user;
+  get userId() {
+    return this.attributes.userId;
   }
 
   set name(name: string) {
