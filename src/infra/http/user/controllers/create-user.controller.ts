@@ -8,12 +8,14 @@ import {
 } from '@nestjs/common';
 import { CreateUserDTO } from '../dtos/create-user.dto';
 import { UserPresenter } from '@/infra/presenters/user-presenter';
+import { Public } from '@/infra/auth/public';
 
 @Controller('/users')
 export class CreateUserController {
   constructor(private readonly createUserUseCase: CreateUserUseCase) {}
 
   @Post()
+  @Public()
   @HttpCode(201)
   async handle(@Body() body: CreateUserDTO) {
     const { email, name } = body;
