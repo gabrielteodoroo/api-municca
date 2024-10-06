@@ -42,4 +42,8 @@ export class InMemoryDocumentRepository extends DocumentRepository {
 
     this.items[itemIndex] = document;
   }
+
+  async deleteManyByUserId(userId: string) {
+    this.items = this.items.filter((document) => document.userId !== userId);
+  }
 }

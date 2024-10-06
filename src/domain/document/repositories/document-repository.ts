@@ -21,4 +21,5 @@ export abstract class DocumentRepository {
     userId: string;
   }): Promise<void>;
   abstract save(document: Document): Promise<void>;
+  abstract deleteManyByUserId(userId: string): Promise<void>;
 }

@@ -2,7 +2,9 @@ import Document from '@/domain/document/entities/document';
 import { DocumentRepository } from '@/domain/document/repositories/document-repository';
 import { PrismaService } from '../prisma.service';
 import { DocumentPrismaMapper } from '../mappers/document-prisma-mapper';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class DocumentPrismaRepository implements DocumentRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
@@ -52,6 +54,12 @@ export class DocumentPrismaRepository implements DocumentRepository {
   async delete({ id, userId }: { id: string; userId: string }): Promise<void> {
     await this.prismaService.document.delete({
       where: { id, userId },
+    });
+  }
+
+  async deleteManyByUserId(userId: string): Promise<void> {
+    await this.prismaService.document.deleteMany({
+      where: { userId },
     });
   }
 }
