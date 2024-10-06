@@ -1,73 +1,117 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# API Municca
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Esta é a API desenvolvida para um processo seletivo, utilizando Node.js com NestJS.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Requisitos
 
-## Description
+Antes de iniciar, certifique-se de ter os seguintes requisitos instalados em sua máquina:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Node.js**: Versão 18.x ou superior [Node.js Download](https://nodejs.org/)
+- **npm**: Gerenciador de pacotes padrão do Node.js
+- **Docker**: Para rodar o banco de dados em containers [Docker Download](https://www.docker.com/)
 
-## Installation
 
-```bash
-$ npm install
-```
+## Tecnologias Utilizadas
 
-## Running the app
+As principais tecnologias utilizadas para o desenvolvimento desta API são:
 
-```bash
-# development
-$ npm run start
+- **Node.js**: Runtime JavaScript
+- **NestJS**: Framework de desenvolvimento de APIs
+- **TypeScript**: Superconjunto do JavaScript que adiciona tipagem estática
+- **Jest**: Framework de testes
+- **Prisma**: ORM (Object-Relational Mapping)
+- **PostgreSQL**: Banco de dados relacional (rodando em um container Docker)
+- **Docker**: Containerização do banco de dados
 
-# watch mode
-$ npm run start:dev
+## Instalação
 
-# production mode
-$ npm run start:prod
-```
+1. Clone o repositório para a sua máquina local:
 
-## Test
+   ```bash
+   git clone https://github.com/gabrielteodoroo/api-municca
+   ```
+2. Acesse o diretório do projeto:
 
-```bash
-# unit tests
-$ npm run test
+   ```bash
+   cd api-municca
+   ```
+3. Instale as dependências:
 
-# e2e tests
-$ npm run test:e2e
+   ```bash
+   npm install 
+   ```
+4. Suba o container do banco de dados PostgreSQL com Docker:
 
-# test coverage
-$ npm run test:cov
-```
+      ```bash
+      docker-compose up -d
+      ```
 
-## Support
+5. Renomeie o arquivo `.env-example` para `.env`
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+6. Configure o banco de dados executando as migrações:
 
-## Stay in touch
+    ```base
+    npx prisma migrate dev
+    ```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Como Usar
 
-## License
+### Executando o servidor de desenvolvimento
 
-Nest is [MIT licensed](LICENSE).
+Para iniciar a API em modo de desenvolvimento, utilize o comando:
+
+   ```bash
+   npm run start:dev
+   ```
+
+O servidor será iniciado em http://localhost:3000.
+
+### Documentação da API
+
+A documentação está disponível no **SwaggerHub**.
+Acesse o link abaixo:
++ [Documentação da API no SwaggerHub](https://app.swaggerhub.com/apis/BIELTEODOROB/municca-api/1.0.0)
+
+### Rotas disponíveis
+
+#### User
+
++ **POST** /login: Autentica um usuário e retorna um token JWT.
++ **GET** /users: Retorna a lista de usuários.
++ **POST** /users: Cria um novo usuário.
++ **GET** /users/:id: Retorna os dados de um usuário específico.
++ **PUT** /users/:id: Atualiza as informações de um usuário específico.
++ **DELETE** /users/:id: Exclui um usuário específico.
+
+#### Document
+
++ **POST** /documents: Cria um documento para o usuário logado.
++ **GET** /documents: Retorna a lista de documentos do usuário logado.
++ **GET** /documents/:id: Retorna os dados de um documento específico.
++ **PUT** /documents/:id: Atualiza as informações de um documento específico.
++ **DELETE** /documents/:id Exclui um documento específico.
+
+## Como testar
+
+### Testes dos casos de uso
+
+Os testes de casos de uso foram implementados utilizando Jest. Para rodar os testes, utilize o comando:
+
+   ```bash
+   npm run test
+   ```
+
+### Testes E2E
+Os testes End-to-End (E2E), que testam os controllers da aplicação, podem ser executados com o comando:
+
+   ```bash
+   npm run test:e2e
+   ```
+
+## Contribuindo
+
+1. Faça fork do projeto
+2. Crie uma nova branch com sua feature: `git checkout -b minha-feature`.
+3. Faça commit das suas mudanças: `git commit -m 'Minha nova feature'`.
+4. Envie para a branch principal: `git push origin minha-feature`.
+5. Abra um Pull Request.
