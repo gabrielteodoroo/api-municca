@@ -16,7 +16,7 @@ export class DeleteDocumentUseCase {
     private userRepository: UserRepository,
   ) {}
 
-  async handle({ id, userId }: Request) {
+  async handle({ id, userId }: Request): Promise<Response> {
     const userExists = await this.userRepository.findById(userId);
 
     if (!userExists) {
