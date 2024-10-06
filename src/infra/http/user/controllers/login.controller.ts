@@ -8,8 +8,10 @@ import {
 import { AuthUserUseCase } from '@/domain/user/use-cases/auth-user';
 import { LoginDTO } from '../dtos/login.dto';
 import { LoginUserPresenter } from '@/infra/presenters/login-user-presenter';
+import { Public } from '@/infra/auth/public';
 
 @Controller('/login')
+@Public()
 export class LoginController {
   constructor(private readonly authUser: AuthUserUseCase) {}
 
