@@ -45,9 +45,20 @@ describe('DeleteUserController', () => {
     await prisma.user.create({
       data: {
         id,
-        name: 'employee',
-        email: 'employee@email.com',
+        name: 'gabriel',
+        email: 'gabriel@email.com',
       },
+    });
+
+    const document = {
+      id: randomUUID(),
+      name: 'Document 1',
+      status: 'active',
+      userId: id,
+    };
+
+    await prisma.document.create({
+      data: document,
     });
 
     const response = await request(app.getHttpServer())
