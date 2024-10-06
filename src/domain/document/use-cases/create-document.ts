@@ -28,7 +28,7 @@ export class CreateDocumentUseCase {
     const document = Document.create({
       name,
       status,
-      user: userExists,
+      userId,
     });
 
     await this.documentRepository.create(document);

@@ -31,8 +31,8 @@ describe('Edit user document', () => {
     const document = Document.create(
       {
         name: 'Document 1',
-        user,
         status: 'active',
+        userId: user.id.toString(),
       },
       new Identity('2'),
     );

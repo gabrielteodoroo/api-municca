@@ -36,7 +36,7 @@ describe('Create document', () => {
     expect(response.isRight()).toBe(true);
     expect(documentRepository.items[0].name).toBe('Document 1');
     expect(documentRepository.items[0].status).toBe('active');
-    expect(documentRepository.items[0].user.id.toString()).toBe('1');
+    expect(documentRepository.items[0].userId).toBe('1');
   });
 
   test('Should not create a document with an invalid user id', async () => {

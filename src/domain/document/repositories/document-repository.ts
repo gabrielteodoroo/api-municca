@@ -20,4 +20,5 @@ export abstract class DocumentRepository {
     id: string;
     userId: string;
   }): Promise<void>;
+  abstract save(document: Document): Promise<void>;
 }

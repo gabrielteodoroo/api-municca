@@ -35,6 +35,8 @@ export class EditDocumentUseCase {
     document.name = name;
     document.status = status;
 
+    await this.documentRepository.save(document);
+
     return right(document);
   }
 }

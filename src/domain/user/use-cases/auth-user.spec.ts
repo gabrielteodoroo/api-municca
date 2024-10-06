@@ -25,7 +25,6 @@ describe('Auth User', () => {
 
     const response = await useCase.handle({
       email: 'gabriel@email.com',
-      name: 'Gabriel Teodoro',
     });
 
     expect(response.isRight()).toBe(true);
