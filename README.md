@@ -1,6 +1,6 @@
 # API Municca
 
-Esta é a API desenvolvida para um processo seletivo, utilizando Node.js com NestJS.
+Essa API foi desenvolvida como parte de um desafio para uma vaga de desenvolvedor full stack. Ela implementa um CRUD básico de usuários e seus documentos relacionados.
 
 ## Requisitos
 
