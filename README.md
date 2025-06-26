@@ -1,6 +1,8 @@
 # API Municca
 
-Essa API foi desenvolvida como parte de um desafio para uma vaga de desenvolvedor full stack. Ela implementa um CRUD básico de usuários e seus documentos relacionados.
+Essa API foi desenvolvida como parte de um desafio técnico para uma vaga de desenvolvedor Full Stack. O projeto consiste na implementação de uma API RESTful utilizando Node.js e TypeScript, com foco em boas práticas de desenvolvimento como arquitetura em camadas, princípios SOLID e separação de responsabilidades.
+
+A aplicação oferece um CRUD completo para gerenciamento de usuários e seus respectivos documentos. Cada usuário pode possuir múltiplos documentos vinculados, e as operações incluem criação, leitura, atualização e exclusão (tanto de usuários quanto de documentos). Além disso, a API valida os dados de entrada e trata erros de forma estruturada, garantindo maior robustez.
 
 ## Requisitos
 
